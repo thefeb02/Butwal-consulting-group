@@ -6,7 +6,7 @@
   --primary:#0b5ed7;
   --primary-dark:#083b8a;
   --secondary:#0f7fcf;
-  --accent:#e63946;
+  --accent:#B80F24;
   --line:rgba(16,35,63,0.1);
   --shadow:0 6px 18px rgba(16,35,63,0.07);
   --radius-lg:12px;
@@ -142,7 +142,7 @@ img{max-width:100%;display:block}
 .course-card{background:#fff;border:1px solid rgba(16,35,63,0.07);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 8px 24px rgba(16,35,63,0.05);transition:transform .22s,box-shadow .22s}
 .course-card:hover{transform:translateY(-6px);box-shadow:0 24px 56px rgba(16,35,63,0.1)}
 .course-header{padding:1.1rem;background:linear-gradient(135deg,#0a3d91,#0b5ed7);display:flex;align-items:flex-start;gap:.85rem}
-.course-card:nth-child(2) .course-header,.course-card:nth-child(4) .course-header{background:linear-gradient(135deg,red,red)}
+.course-card:nth-child(2) .course-header,.course-card:nth-child(4) .course-header{background:linear-gradient(135deg,#B80F24,#B80F24)}
 .course-icon{width:48px;height:48px;border-radius:20px;background:rgba(255,255,255,0.18);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.1rem;flex-shrink:0}
 .course-head-text{display:flex;flex-direction:column;gap:.3rem}
 .course-badge{display:inline-flex;padding:.2rem .55rem;border-radius:999px;background:rgba(255,255,255,0.2);color:#fff;font-size:.7rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;width:fit-content}
@@ -154,27 +154,7 @@ img{max-width:100%;display:block}
 .course-meta strong{font-weight:800;color:var(--text);font-size:.85rem}
 .course-cta{display:flex;justify-content:center;align-items:center;gap:.5rem;padding:.75rem;border-radius:10px;background:blue;;color:#fff;font-weight:800;font-size:.88rem;transition:opacity .2s;margin-top:auto}
 .course-cta:hover{opacity:.9;color:#fff}
-.course-cta1{display:flex;justify-content:center;align-items:center;gap:.5rem;padding:.75rem;border-radius:10px;background:red;;color:#fff;font-weight:800;font-size:.88rem;transition:opacity .2s;margin-top:auto}
-.is-hidden-excel{display:none}
-.courses-grid.is-excel-open .is-hidden-excel{display:flex}
-.programs-see-more{
-  margin-top:.9rem;
-  display:flex;
-  justify-content:center;
-}
-.see-more-text{
-  border:none;
-  background:none;
-  color:var(--primary);
-  font-weight:800;
-  font-size:.98rem;
-  cursor:pointer;
-  padding:.35rem .2rem;
-  text-decoration:underline;
-  text-underline-offset:.2rem;
-}
-.see-more-text:hover{color:var(--primary-dark)}
-
+.course-cta1{display:flex;justify-content:center;align-items:center;gap:.5rem;padding:.75rem;border-radius:10px;background:#B80F24;;color:#fff;font-weight:800;font-size:.88rem;transition:opacity .2s;margin-top:auto}
 @media(max-width:1024px){.courses-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:520px){.courses-grid{grid-template-columns:1fr}}
 
@@ -299,6 +279,14 @@ img{max-width:100%;display:block}
   color:var(--muted);
   border-top:1px solid rgba(16,35,63,0.06);
 }
+.faq-more{
+  display:none;
+  margin-top:.75rem;
+  gap:.75rem;
+}
+.faq-more.is-visible{
+  display:grid;
+}
 .expand-all-btn{
   border:none;
   background:none;
@@ -307,6 +295,9 @@ img{max-width:100%;display:block}
   cursor:pointer;
   padding:.35rem 0;
   white-space:nowrap;
+}
+.faq-see-more{
+  margin-top:.35rem;
 }
 .week-list{
   border:1px solid #cfd6e6;
@@ -411,6 +402,45 @@ img{max-width:100%;display:block}
   text-align:left;
 }
 
+#business-taxation-program .week-list{
+  border:1px solid #d6deec;
+  border-radius:6px;
+  overflow:hidden;
+}
+#business-taxation-program .week-item{
+  border-bottom:1px solid #d6deec;
+}
+#business-taxation-program .week-item:last-child{
+  border-bottom:none;
+}
+#business-taxation-program .week-item summary{
+  display:grid;
+  grid-template-columns:20px 130px 1fr;
+  align-items:center;
+  gap:.75rem;
+  padding:1rem 1rem 1rem .85rem;
+  text-align:left;
+}
+#business-taxation-program .week-item summary::before{
+  margin-right:0;
+  justify-self:center;
+}
+#business-taxation-program .week-title{
+  display:block;
+  font-weight:800;
+  color:#0b2b55;
+}
+#business-taxation-program .week-meta{
+  justify-self:end;
+  text-align:right;
+  white-space:nowrap;
+  font-weight:500;
+  color:#48658f;
+}
+#business-taxation-program .week-body{
+  padding:0 1rem 1rem 2.2rem;
+}
+
 @media(max-width:640px){
   .course-content-head{
     flex-direction:column;
@@ -421,6 +451,14 @@ img{max-width:100%;display:block}
   }
   .week-meta{
     white-space:normal;
+  }
+  #business-taxation-program .week-item summary{
+    grid-template-columns:20px 1fr;
+  }
+  #business-taxation-program .week-meta{
+    grid-column:2;
+    justify-self:start;
+    text-align:left;
   }
 }
 
@@ -471,32 +509,47 @@ img{max-width:100%;display:block}
 @media(max-width:640px){.testimonial-card{flex:0 0 100%}}
  
 /* ── FOOTER ── */
-.site-footer{background:#fcfbf2;color:#111;padding:3rem var(--gutter) 1.5rem}
-.footer-inner{max-width:100%;margin:0 auto}
-.footer-grid{display:grid;grid-template-columns:1.3fr .75fr .75fr .75fr 1.1fr;gap:1.5rem;margin-bottom:2rem}
-.footer-brand{display:flex;align-items:center;gap:.75rem;margin-bottom:1rem}
-.footer-brand-logo{width:auto;max-width:140px;height:auto;max-height:48px;object-fit:contain}
-.footer-brand-text strong{color:#111;font-size:.95rem}
-.footer-brand-text small{color:#4a4a4a;font-size:.78rem}
-.footer-desc{color:#2b2b2b;font-size:.9rem;line-height:1.7;margin-bottom:1.1rem}
-.footer-socials{display:flex;gap:.6rem}
-.footer-socials a{width:44px;height:44px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;color:#111;font-size:1.05rem;box-shadow:0 12px 24px rgba(0,0,0,0.08);transition:transform .2s,box-shadow .2s}
-.footer-socials a:hover{transform:translateY(-2px);box-shadow:0 16px 30px rgba(0,0,0,0.12)}
+.site-footer{position:relative;overflow:hidden;background:linear-gradient(180deg,#eff4fb 0%,#dfe8f4 100%);color:#14213d;padding:1rem}
+.site-footer::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 10% 78%,rgba(255,255,255,0.28),transparent 24%),linear-gradient(180deg,rgba(10,47,103,0.03),rgba(10,47,103,0));pointer-events:none}
+.footer-inner{position:relative;max-width:100%;margin:0 auto;background:linear-gradient(180deg,#f9fbff 0%,#eef4fb 78%,#dfe9f5 100%);border-radius:8px;overflow:hidden;box-shadow:0 18px 40px rgba(13,35,64,0.12)}
+.footer-top-accent{height:3px;background:linear-gradient(90deg,#d81e34 0 30%,transparent 30% 100%)}
+.footer-grid{display:grid;grid-template-columns:1.2fr .95fr .95fr .95fr 1.1fr;gap:1.8rem;padding:2rem 2rem 1.6rem}
+.footer-brand-col{padding-right:1.5rem;border-right:1px solid rgba(20,33,61,0.09)}
+.footer-brand{display:flex;align-items:center;gap:.85rem;margin-bottom:1rem}
+
+.footer-brand-text small{display:block;color:#17315d;font-size:.74rem;font-weight:800;letter-spacing:.14em}
+.footer-desc{color:#4a5568;font-size:.9rem;line-height:1.7;max-width:250px;margin-bottom:1.15rem}
+.footer-socials{display:flex;gap:.8rem;flex-wrap:wrap}
+.footer-socials a{width:38px;height:38px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;color:#17315d;font-size:.95rem;box-shadow:0 10px 20px rgba(13,35,64,0.08);transition:transform .2s,box-shadow .2s,color .2s}
+.footer-socials a:hover{transform:translateY(-2px);box-shadow:0 14px 24px rgba(13,35,64,0.14)}
 .footer-socials a.social-fb{color:#3b5998}
 .footer-socials a.social-ig{color:#E1306C}
 .footer-socials a.social-li{color:#0A66C2}
 .footer-socials a.social-wa{color:#25D366}
-.footer-col h3{font-size:.95rem;font-weight:800;margin-bottom:1rem;color:#111}
-.footer-col ul{list-style:none;display:grid;gap:.55rem}
-.footer-col li a,.footer-col li{color:#2b2b2b;font-size:.88rem;transition:color .2s}
-.footer-col li a:hover{color:#111}
-.footer-contact-list{display:grid;gap:.65rem}
-.footer-contact-list p{display:flex;align-items:flex-start;gap:.6rem;color:#2b2b2b;font-size:.86rem;line-height:1.5}
-.footer-contact-list i{color:#4a4a4a;margin-top:.15rem;flex-shrink:0;width:16px}
-.copyright{border-top:1px solid rgba(17,17,17,0.12);padding-top:1.25rem;text-align:center;color:#4a4a4a;font-size:.84rem}
+.footer-col h3{display:flex;align-items:center;gap:.5rem;font-size:.9rem;font-weight:800;margin-bottom:1rem;color:#17315d}
+
+.footer-col ul{list-style:none;display:grid;gap:.6rem}
+.footer-col li a,.footer-col li{color:#3f4b5e;font-size:.88rem;transition:color .2s}
+.footer-col li a:hover{color:#d81e34}
+.footer-contact-list{display:grid;gap:.9rem}
+.footer-contact-list p{display:flex;align-items:flex-start;gap:.7rem;color:#3f4b5e;font-size:.86rem;line-height:1.5}
+.footer-contact-list i{color:#d81e34;margin-top:.15rem;flex-shrink:0;width:16px}
+.copyright{display:flex;flex-direction:column;align-items:center;gap:.85rem;border-top:1px solid rgba(13,35,64,0.1);padding:1rem 2rem 1.15rem;text-align:center;color:#fff;background:linear-gradient(180deg,#204d8b,#183f74)}
+.copyright-mark{display:flex;align-items:center;justify-content:center;width:100%;max-width:260px;gap:.8rem}
+.copyright-mark::before,.copyright-mark::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.6),transparent)}
+.copyright-logo{display:flex;align-items:center;justify-content:center;width:60px;height:60px;}
+
+.copyright p{margin:0;font-size:.84rem;color:rgba(255,255,255,0.9)}
  
-@media(max-width:1024px){.footer-grid{grid-template-columns:1fr 1fr;gap:1.25rem}}
-@media(max-width:600px){.footer-grid{grid-template-columns:1fr}}
+@media(max-width:1024px){
+  .footer-grid{grid-template-columns:1fr 1fr;gap:1.25rem}
+  .footer-brand-col{border-right:none;padding-right:0}
+}
+@media(max-width:600px){
+  .site-footer{padding:.65rem}
+  .footer-grid{grid-template-columns:1fr;padding:1.4rem 1.1rem}
+  .copyright{padding:1rem 1.1rem 1.1rem}
+}
  
 /* ── WHATSAPP FLOAT ── */
 .whatsapp-float{position:fixed;right:1.25rem;bottom:1.25rem;width:54px;height:54px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.5rem;box-shadow:0 12px 28px rgba(37,211,102,0.38);z-index:2000;transition:transform .2s}

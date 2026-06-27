@@ -113,6 +113,16 @@ reveals.forEach(r=>revealObserver.observe(r));
   }
  
   setup();
+
+  const faqToggle = document.getElementById('faqToggle');
+  const faqMore = document.getElementById('faqMore');
+  if (faqToggle && faqMore) {
+    faqToggle.addEventListener('click', () => {
+      const isVisible = faqMore.classList.toggle('is-visible');
+      faqToggle.setAttribute('aria-expanded', String(isVisible));
+      faqToggle.textContent = isVisible ? 'See less' : 'See more';
+    });
+  }
   window.addEventListener('resize',()=>setup());
  
   let startX=0;
