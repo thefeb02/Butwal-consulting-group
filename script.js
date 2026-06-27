@@ -41,6 +41,16 @@ const metricObserver=new IntersectionObserver(entries=>{
 const band=document.querySelector('.metrics-band');
 if(band)metricObserver.observe(band);
  
+/* ── EXCEL SEE MORE ── */
+const excelToggle=document.getElementById('excelToggle');
+const programsGrid=document.querySelector('.courses-grid');
+if(excelToggle&&programsGrid){
+  excelToggle.addEventListener('click',()=>{
+    const open=programsGrid.classList.toggle('is-excel-open');
+    excelToggle.textContent=open?'See Less':'See More';
+  });
+}
+
 /* ── REVEAL ON SCROLL ── */
 const reveals=document.querySelectorAll('.reveal');
 const revealObserver=new IntersectionObserver(entries=>{
